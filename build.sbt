@@ -28,11 +28,12 @@ libraryDependencies ++= {
 	)
 }
 
-// DATE AND TIME HELPERS
+// DATE, TIME & HTML HELPERS
 libraryDependencies ++= Seq(
 	//"joda-time" %% "joda-time" % "2.5", // Joda Time
 	"com.github.nscala-time" %% "nscala-time" % "1.4.0", // new joda time for scala
-	"org.ocpsoft.prettytime" % "prettytime" % "2.+" // prettytime library (for making "3 days ago" etc.)
+	"org.ocpsoft.prettytime" % "prettytime" % "2.+", // prettytime library (for making "3 days ago" etc.)
+	"org.jsoup" % "jsoup" % "1.8.3" // Jsoup for HTML deconstruction :)
 )
 
 // APACHE Commons for helpers etc.
