@@ -11,6 +11,13 @@ object NumberPimps {
 
 	implicit def longToAmPimpedLong(num: Long): AmPimpedLong = new AmPimpedLong(num)
 
+	implicit def bigDecimalToAmPimpedLong(num: BigDecimal): AmPimpedBigDecimal = new AmPimpedBigDecimal(num)
+
+
+	class AmPimpedBigDecimal(num: BigDecimal) extends BigDecimalCurrencyFormat {
+		val theNumber = num
+	}
+
 	class AmPimpedLong(num: Long)
 		extends LongCurrencyFormat {
 		val theNumber = num
@@ -18,6 +25,12 @@ object NumberPimps {
 
 	trait LongCurrencyFormat {
 		val theNumber: Long
+
+		def asCurrencyString: String = NumberFormat.getCurrencyInstance.format(theNumber)
+	}
+
+	trait BigDecimalCurrencyFormat {
+		val theNumber: BigDecimal
 
 		def asCurrencyString: String = NumberFormat.getCurrencyInstance.format(theNumber)
 	}
