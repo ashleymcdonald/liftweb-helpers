@@ -46,7 +46,7 @@ object DateTimePimps {
 	trait FormatPrettyTime {
 		val theDate: Date
 
-		def prettyTime = new PrettyTime(new Date()).format(theDate).replace("from now", "")
+		def prettyTime = tryo(new PrettyTime(new Date()).format(theDate).replace("from now", "")).openOr("")
 	}
 
 }
